@@ -8,35 +8,124 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ColorPickerDelegate {
 
     @IBOutlet weak var drawView: DrawView!
-    @IBOutlet weak var recodingButton: UIButton!
+    @IBOutlet weak var recodingButton: RecodingButton!
+    @IBOutlet weak var colorPickerButton: UIButton!
+    @IBOutlet weak var informationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     @IBAction func start(_ sender: UIButton) {
-        if sender.isSelected {
-            drawView.endRecoding()
-        } else {
-            drawView.startRecoding()
-        }
-
-        sender.isSelected = !sender.isSelected
+        recodingButton.isRecoding ? drawView.endRecoding() : drawView.startRecoding()
+        
+        drawView.isUserInteractionEnabled =  !recodingButton.isRecoding
+        informationLabel.isHidden =  !recodingButton.isRecoding
+        
+        recodingButton.recoding()
     }
     
     @IBAction func play(_ sender: Any) {
         drawView.play()
     }
     
+    @IBAction func selectColor(_ sender: Any) {
+        guard let colorVC = UIStoryboard(name: "ColorPickerViewController", bundle: nil).instantiateInitialViewController() as? ColorPickerViewController else {
+            return
+        }
+        
+        colorVC.currentColor = drawView.color
+        colorVC.delegate = self
+        colorVC.modalPresentationStyle = .overCurrentContext
+        
+        self.present(colorVC, animated: false, completion: nil)
+    }
+    
+    @IBAction func removeDraw(_ sender: Any) {
+        drawView.removePath()
+    }
+    
+    func setColor(color: UIColor) {
+        let origImage = UIImage(named: "pencil")
+        let tintedImage = origImage?.withRenderingMode(.alwaysTemplate)
+        colorPickerButton.setImage(tintedImage, for: .normal)
+        colorPickerButton.tintColor = color
+
+        drawView.color = color
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

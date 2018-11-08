@@ -48,46 +48,6 @@ struct RecodingData {
                 return touchEnd - touchStart
             }
         }
-        
-        func setAnimation() -> CALayer {
-            var animations:[CAAnimation] = []
-
-            var beginTime:TimeInterval = 0
-            var value:Double = 0
-            
-            let layer = CAShapeLayer()
-            layer.path = path.cgPath
-            layer.strokeStart = 0
-            layer.strokeEnd = 1
-            layer.strokeColor = color.cgColor
-            layer.lineWidth = width
-            layer.lineJoin = kCALineJoinMiter
-            layer.fillColor = UIColor.clear.cgColor
-            
-            for i in 1..<self.touchDatas.count {
-                
-                let duration = self.touchDatas[i].timeInterval - self.touchDatas[i - 1].timeInterval
-                
-                let toValue = value + (duration / interval)
-                
-                let animation = CABasicAnimation(keyPath: "strokeEnd")
-                animation.beginTime = CACurrentMediaTime() + beginTime
-                animation.fromValue = value
-                animation.toValue = toValue
-                animation.duration = duration
-                
-                beginTime += duration
-                value = toValue
-                
-                animations.append(animation)
-            }
-            
-            for i in 0..<animations.count {
-                layer.add(animations[i], forKey: "ani\(i)")
-            }
-            
-            return layer
-        }
     }
 }
 

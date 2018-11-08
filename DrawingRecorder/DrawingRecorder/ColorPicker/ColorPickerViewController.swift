@@ -28,6 +28,8 @@ class ColorPickerViewController: UIViewController {
     
     @IBOutlet weak var colorDisplayView: UIView!
     
+    var currentColor:UIColor = UIColor.clear
+    
     var redColor:Float = 0.0
     var greenColor:Float = 0.0
     var blueColor:Float = 0.0
@@ -50,28 +52,44 @@ class ColorPickerViewController: UIViewController {
         colorDisplayView.layer.masksToBounds = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setCurrentColor()
+    }
+    
+    func setCurrentColor() {
+        var fRed : CGFloat = 0
+        var fGreen : CGFloat = 0
+        var fBlue : CGFloat = 0
+        var fAlpha: CGFloat = 0
+        if self.currentColor.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
+            redColor = Float(fRed)
+            redSlider.value = Float(fRed)
+            
+            greenColor = Float(fGreen)
+            greenSlider.value = Float(fGreen)
+            
+            blueColor = Float(fBlue)
+            blueSlider.value = Float(fBlue)
+            
+            setColor()
+        }
+    }
+    
     @IBAction func onRedSliderAction(_ sender: Any) {
         redColor = redSlider.value
-        let value = String(format: "%0.0f", redColor * 255)
-        redLabel.text = "Red : \(value)"
-        
-        changeDisplayColor()
+        setColor()
     }
     
     @IBAction func onGreenSliderAction(_ sender: Any) {
         greenColor = greenSlider.value
-        let value = String(format: "%0.0f", greenColor * 255)
-        greenLabel.text = "Red : \(value)"
-        
-        changeDisplayColor()
+        setColor()
     }
     
     @IBAction func onBlueSliderAction(_ sender: Any) {
         blueColor = blueSlider.value
-        let value = String(format: "%0.0f", blueColor * 255)
-        blueLabel.text = "Red : \(value)"
-        
-        changeDisplayColor()
+        setColor()
     }
     
     @IBAction func onApplyAction(_ sender: Any) {
@@ -84,7 +102,16 @@ class ColorPickerViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    func changeDisplayColor() {
+    func setColor() {
+        let red = String(format: "%0.0f", redColor * 255)
+        redLabel.text = "Red : \(red)"
+        
+        let green = String(format: "%0.0f", greenColor * 255)
+        greenLabel.text = "Green : \(green)"
+        
+        let blue = String(format: "%0.0f", blueColor * 255)
+        blueLabel.text = "Blue : \(blue)"
+        
         colorDisplayView.backgroundColor = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
     }
     

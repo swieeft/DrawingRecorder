@@ -18,6 +18,7 @@
 		241898982191981600C7132E /* RecodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898972191981600C7132E /* RecodingData.swift */; };
 		2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418989921919DF400C7132E /* ColorPickerViewController.swift */; };
 		2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */; };
+		2452AF6E21943126001811E5 /* RecodingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF6D21943126001811E5 /* RecodingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		241898972191981600C7132E /* RecodingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingData.swift; sourceTree = "<group>"; };
 		2418989921919DF400C7132E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPickerViewController.storyboard; sourceTree = "<group>"; };
+		2452AF6D21943126001811E5 /* RecodingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		241898662191969800C7132E /* DrawingRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2452AF6C2194311A001811E5 /* CustomControl */,
 				2452AF6A219403C2001811E5 /* DrawingView */,
 				2418989B21919DF900C7132E /* ColorPicker */,
 				241898672191969800C7132E /* AppDelegate.swift */,
@@ -151,6 +154,14 @@
 				241898952191977400C7132E /* DrawView.swift */,
 			);
 			path = DrawingView;
+			sourceTree = "<group>";
+		};
+		2452AF6C2194311A001811E5 /* CustomControl */ = {
+			isa = PBXGroup;
+			children = (
+				2452AF6D21943126001811E5 /* RecodingButton.swift */,
+			);
+			path = CustomControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2452AF6E21943126001811E5 /* RecodingButton.swift in Sources */,
 				2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */,
 				2418986A2191969800C7132E /* ViewController.swift in Sources */,
 				241898982191981600C7132E /* RecodingData.swift in Sources */,

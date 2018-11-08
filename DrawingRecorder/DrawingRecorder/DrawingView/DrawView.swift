@@ -15,10 +15,14 @@ class DrawView: UIView {
     var recodingData:RecodingData = RecodingData()
     var drawingInfo = RecodingData.DrawingInfo()
     
-    var color = UIColor.red
+    var color = UIColor.black
     var width:CGFloat = 5
     
     var isRemove:Bool = false
+    
+    var drawLayer:CAShapeLayer = CAShapeLayer()
+    
+    var isPlay = false
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
@@ -92,82 +96,19 @@ class DrawView: UIView {
     func startRecoding() {
         recodingData = RecodingData()
         recodingData.startRecodingTime = ProcessInfo.processInfo.systemUptime
+        
+        removeLayers()
     }
     
     func endRecoding() {
         recodingData.endRecodingTime = ProcessInfo.processInfo.systemUptime
     }
     
-//    func play() {
-//        removeLayers()
-//
-//        let drawingInfos = self.recodingData.drawingInfos
-//
-//        let queue = DispatchQueue(label: "addLayer")
-//        queue.async {
-//            let interval = drawingInfos[0].touchStart - self.recodingData.startRecodingTime
-//            Thread.sleep(forTimeInterval: interval)
-//            for i in 0..<drawingInfos.count {
-////                let layer = drawingInfos[i].setAnimation()
-//                let layer = self.addSubLayer(path: path, color: self.color, width: self.width)
-//
-//                DispatchQueue.main.async {
-//                    self.layer.addSublayer(layer)
-//                }
-//
-//                if i == drawingInfos.count - 1 {
-//                    let interval = drawingInfos[i].interval + (self.recodingData.endRecodingTime - drawingInfos[i].touchEnd)
-//                    Thread.sleep(forTimeInterval: interval)
-//                } else {
-//                    let interval = drawingInfos[i].interval + (drawingInfos[i + 1].touchStart - drawingInfos[i].touchEnd)
-//                    Thread.sleep(forTimeInterval: interval)
-//                }
-//            }
-//        }
-//    }
-    
-    
-//    func setAnimation() -> CALayer {
-//        var animations:[CAAnimation] = []
-//
-//        var beginTime:TimeInterval = 0
-//        var value:Double = 0
-//
-//        let layer = CAShapeLayer()
-//        layer.path = path.cgPath
-//        layer.strokeStart = 0
-//        layer.strokeEnd = 1
-//        layer.strokeColor = color.cgColor
-//        layer.lineWidth = width
-//        layer.lineJoin = kCALineJoinMiter
-//        layer.fillColor = UIColor.clear.cgColor
-//
-//        for i in 1..<self.touchDatas.count {
-//
-//            let duration = self.touchDatas[i].timeInterval - self.touchDatas[i - 1].timeInterval
-//
-//            let toValue = value + (duration / interval)
-//
-//            let animation = CABasicAnimation(keyPath: "strokeEnd")
-//            animation.beginTime = CACurrentMediaTime() + beginTime
-//            animation.fromValue = value
-//            animation.toValue = toValue
-//            animation.duration = duration
-//
-//            beginTime += duration
-//            value = toValue
-//
-//            animations.append(animation)
-//        }
-//
-//        for i in 0..<animations.count {
-//            layer.add(animations[i], forKey: "ani\(i)")
-//        }
-//
-//        return layer
-//    }
-    
-    var isPlay = false
+    func removePath() {
+        if let backColor = self.backgroundColor {
+            self.color = backColor
+        }
+    }
     
     func play() {
         
@@ -177,15 +118,20 @@ class DrawView: UIView {
         
         let drawingInfos = self.recodingData.drawingInfos
         
+        if drawingInfos.count == 0 {
+            return
+        }
+        
         let queue = DispatchQueue(label: "addLayer")
         queue.async {
             
             let interval = drawingInfos[0].touchStart - self.recodingData.startRecodingTime
+            
             Thread.sleep(forTimeInterval: interval)
             
             for i in 0..<drawingInfos.count {
                 let path = UIBezierPath()
-                let layer = self.addSubLayer(path: path, color: self.color, width: self.width)
+                let layer = self.addSubLayer(path: path, color: drawingInfos[i].color, width: drawingInfos[i].width)
                 
                 DispatchQueue.main.async {
                     self.layer.addSublayer(layer)
@@ -224,15 +170,11 @@ class DrawView: UIView {
                     }
                 }
                 
-//                DispatchQueue.main.async {
-//                    self.layer.addSublayer(layer)
-//                }
-                
                 if i == drawingInfos.count - 1 {
                     let interval = drawingInfos[i].interval + (self.recodingData.endRecodingTime - drawingInfos[i].touchEnd)
                     Thread.sleep(forTimeInterval: interval)
                 } else {
-                    let interval = drawingInfos[i].interval + (drawingInfos[i + 1].touchStart - drawingInfos[i].touchEnd)
+                    let interval = drawingInfos[i + 1].touchStart - drawingInfos[i].touchEnd
                     Thread.sleep(forTimeInterval: interval)
                 }
             }
@@ -260,6 +202,23 @@ class DrawView: UIView {
     func drawLine() {
         removeLayers()
         
+        for i in 0..<self.recodingData.drawingInfos.count {
+            let path = UIBezierPath()
+            
+            let touchDatas = self.recodingData.drawingInfos[i].touchDatas
+            
+            for j in 0..<touchDatas.count {
+                if j == 0 {
+                    path.move(to: touchDatas[j].point)
+                } else {
+                    path.addLine(to: touchDatas[j].point)
+                }
+            }
+            
+            let layer = addSubLayer(path: path, color: recodingData.drawingInfos[i].color, width: recodingData.drawingInfos[i].width)
+            self.layer.addSublayer(layer)
+        }
+        
         let path = UIBezierPath()
         
         for i in 0..<points.count {
@@ -283,9 +242,7 @@ class DrawView: UIView {
         layer.lineWidth = width
         layer.lineJoin = kCALineJoinMiter
         layer.fillColor = UIColor.clear.cgColor
-        
-//        self.layer.addSublayer(layer)
-        
+         
         return layer
     }
 }
