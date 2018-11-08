@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		241898682191969800C7132E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898672191969800C7132E /* AppDelegate.swift */; };
+		2418986A2191969800C7132E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898692191969800C7132E /* ViewController.swift */; };
+		2418986D2191969800C7132E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2418986B2191969800C7132E /* Main.storyboard */; };
+		2418986F2191969A00C7132E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2418986E2191969A00C7132E /* Assets.xcassets */; };
+		241898722191969A00C7132E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 241898702191969A00C7132E /* LaunchScreen.storyboard */; };
+		2418987D2191969A00C7132E /* DrawingRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418987C2191969A00C7132E /* DrawingRecorderTests.swift */; };
+		241898882191969A00C7132E /* DrawingRecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898872191969A00C7132E /* DrawingRecorderUITests.swift */; };
+		241898962191977400C7132E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898952191977400C7132E /* DrawView.swift */; };
+		241898982191981600C7132E /* RecodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898972191981600C7132E /* RecodingData.swift */; };
+		2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418989921919DF400C7132E /* ColorPickerViewController.swift */; };
+		2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		241898792191969A00C7132E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2418985C2191969800C7132E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 241898632191969800C7132E;
+			remoteInfo = DrawingRecorder;
+		};
+		241898842191969A00C7132E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2418985C2191969800C7132E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 241898632191969800C7132E;
+			remoteInfo = DrawingRecorder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		241898642191969800C7132E /* DrawingRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawingRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		241898672191969800C7132E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		241898692191969800C7132E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2418986C2191969800C7132E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2418986E2191969A00C7132E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		241898712191969A00C7132E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		241898732191969A00C7132E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		241898782191969A00C7132E /* DrawingRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2418987C2191969A00C7132E /* DrawingRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRecorderTests.swift; sourceTree = "<group>"; };
+		2418987E2191969A00C7132E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		241898832191969A00C7132E /* DrawingRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		241898872191969A00C7132E /* DrawingRecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRecorderUITests.swift; sourceTree = "<group>"; };
+		241898892191969A00C7132E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		241898952191977400C7132E /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		241898972191981600C7132E /* RecodingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingData.swift; sourceTree = "<group>"; };
+		2418989921919DF400C7132E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPickerViewController.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		241898612191969800C7132E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		241898752191969A00C7132E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		241898802191969A00C7132E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2418985B2191969800C7132E = {
+			isa = PBXGroup;
+			children = (
+				241898662191969800C7132E /* DrawingRecorder */,
+				2418987B2191969A00C7132E /* DrawingRecorderTests */,
+				241898862191969A00C7132E /* DrawingRecorderUITests */,
+				241898652191969800C7132E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		241898652191969800C7132E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				241898642191969800C7132E /* DrawingRecorder.app */,
+				241898782191969A00C7132E /* DrawingRecorderTests.xctest */,
+				241898832191969A00C7132E /* DrawingRecorderUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		241898662191969800C7132E /* DrawingRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				2452AF6A219403C2001811E5 /* DrawingView */,
+				2418989B21919DF900C7132E /* ColorPicker */,
+				241898672191969800C7132E /* AppDelegate.swift */,
+				241898692191969800C7132E /* ViewController.swift */,
+				2418986B2191969800C7132E /* Main.storyboard */,
+				2418986E2191969A00C7132E /* Assets.xcassets */,
+				241898702191969A00C7132E /* LaunchScreen.storyboard */,
+				241898732191969A00C7132E /* Info.plist */,
+			);
+			path = DrawingRecorder;
+			sourceTree = "<group>";
+		};
+		2418987B2191969A00C7132E /* DrawingRecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				2418987C2191969A00C7132E /* DrawingRecorderTests.swift */,
+				2418987E2191969A00C7132E /* Info.plist */,
+			);
+			path = DrawingRecorderTests;
+			sourceTree = "<group>";
+		};
+		241898862191969A00C7132E /* DrawingRecorderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				241898872191969A00C7132E /* DrawingRecorderUITests.swift */,
+				241898892191969A00C7132E /* Info.plist */,
+			);
+			path = DrawingRecorderUITests;
+			sourceTree = "<group>";
+		};
+		2418989B21919DF900C7132E /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2418989921919DF400C7132E /* ColorPickerViewController.swift */,
+				2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		2452AF6A219403C2001811E5 /* DrawingView */ = {
+			isa = PBXGroup;
+			children = (
+				241898972191981600C7132E /* RecodingData.swift */,
+				241898952191977400C7132E /* DrawView.swift */,
+			);
+			path = DrawingView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		241898632191969800C7132E /* DrawingRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2418988C2191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorder" */;
+			buildPhases = (
+				241898602191969800C7132E /* Sources */,
+				241898612191969800C7132E /* Frameworks */,
+				241898622191969800C7132E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrawingRecorder;
+			productName = DrawingRecorder;
+			productReference = 241898642191969800C7132E /* DrawingRecorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		241898772191969A00C7132E /* DrawingRecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2418988F2191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorderTests" */;
+			buildPhases = (
+				241898742191969A00C7132E /* Sources */,
+				241898752191969A00C7132E /* Frameworks */,
+				241898762191969A00C7132E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2418987A2191969A00C7132E /* PBXTargetDependency */,
+			);
+			name = DrawingRecorderTests;
+			productName = DrawingRecorderTests;
+			productReference = 241898782191969A00C7132E /* DrawingRecorderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		241898822191969A00C7132E /* DrawingRecorderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 241898922191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorderUITests" */;
+			buildPhases = (
+				2418987F2191969A00C7132E /* Sources */,
+				241898802191969A00C7132E /* Frameworks */,
+				241898812191969A00C7132E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				241898852191969A00C7132E /* PBXTargetDependency */,
+			);
+			name = DrawingRecorderUITests;
+			productName = DrawingRecorderUITests;
+			productReference = 241898832191969A00C7132E /* DrawingRecorderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2418985C2191969800C7132E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = swieeft;
+				TargetAttributes = {
+					241898632191969800C7132E = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					241898772191969A00C7132E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 241898632191969800C7132E;
+					};
+					241898822191969A00C7132E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 241898632191969800C7132E;
+					};
+				};
+			};
+			buildConfigurationList = 2418985F2191969800C7132E /* Build configuration list for PBXProject "DrawingRecorder" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2418985B2191969800C7132E;
+			productRefGroup = 241898652191969800C7132E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				241898632191969800C7132E /* DrawingRecorder */,
+				241898772191969A00C7132E /* DrawingRecorderTests */,
+				241898822191969A00C7132E /* DrawingRecorderUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		241898622191969800C7132E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				241898722191969A00C7132E /* LaunchScreen.storyboard in Resources */,
+				2418986F2191969A00C7132E /* Assets.xcassets in Resources */,
+				2418986D2191969800C7132E /* Main.storyboard in Resources */,
+				2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		241898762191969A00C7132E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		241898812191969A00C7132E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		241898602191969800C7132E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */,
+				2418986A2191969800C7132E /* ViewController.swift in Sources */,
+				241898982191981600C7132E /* RecodingData.swift in Sources */,
+				241898682191969800C7132E /* AppDelegate.swift in Sources */,
+				241898962191977400C7132E /* DrawView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		241898742191969A00C7132E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2418987D2191969A00C7132E /* DrawingRecorderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2418987F2191969A00C7132E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				241898882191969A00C7132E /* DrawingRecorderUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2418987A2191969A00C7132E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 241898632191969800C7132E /* DrawingRecorder */;
+			targetProxy = 241898792191969A00C7132E /* PBXContainerItemProxy */;
+		};
+		241898852191969A00C7132E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 241898632191969800C7132E /* DrawingRecorder */;
+			targetProxy = 241898842191969A00C7132E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2418986B2191969800C7132E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2418986C2191969800C7132E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		241898702191969A00C7132E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				241898712191969A00C7132E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2418988A2191969A00C7132E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2418988B2191969A00C7132E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2418988D2191969A00C7132E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2418988E2191969A00C7132E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		241898902191969A00C7132E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrawingRecorder.app/DrawingRecorder";
+			};
+			name = Debug;
+		};
+		241898912191969A00C7132E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DrawingRecorder.app/DrawingRecorder";
+			};
+			name = Release;
+		};
+		241898932191969A00C7132E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DrawingRecorder;
+			};
+			name = Debug;
+		};
+		241898942191969A00C7132E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DrawingRecorderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DrawingRecorder;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2418985F2191969800C7132E /* Build configuration list for PBXProject "DrawingRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2418988A2191969A00C7132E /* Debug */,
+				2418988B2191969A00C7132E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2418988C2191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2418988D2191969A00C7132E /* Debug */,
+				2418988E2191969A00C7132E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2418988F2191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				241898902191969A00C7132E /* Debug */,
+				241898912191969A00C7132E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		241898922191969A00C7132E /* Build configuration list for PBXNativeTarget "DrawingRecorderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				241898932191969A00C7132E /* Debug */,
+				241898942191969A00C7132E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2418985C2191969800C7132E /* Project object */;
+}
