@@ -15,8 +15,6 @@ protocol ColorPickerDelegate {
 class ColorPickerViewController: UIViewController {
 
     @IBOutlet weak var pickerView: UIView!
-    @IBOutlet weak var applyButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
@@ -25,8 +23,6 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
-    
-    @IBOutlet weak var colorDisplayView: UIView!
     
     var currentColor:UIColor = UIColor.clear
     
@@ -38,18 +34,6 @@ class ColorPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        pickerView.layer.cornerRadius = 10
-        pickerView.layer.masksToBounds = true
-        
-        applyButton.layer.cornerRadius = 5
-        applyButton.layer.masksToBounds = true
-        
-        cancelButton.layer.cornerRadius = 5
-        cancelButton.layer.masksToBounds = true
-        
-        colorDisplayView.layer.cornerRadius = 10
-        colorDisplayView.layer.masksToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,15 +76,15 @@ class ColorPickerViewController: UIViewController {
         setColor()
     }
     
-    @IBAction func onApplyAction(_ sender: Any) {
-        let color = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
-        self.delegate?.setColor(color: color)
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    @IBAction func onCancelAction(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
+//    @IBAction func onApplyAction(_ sender: Any) {
+//        let color = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
+//        self.delegate?.setColor(color: color)
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//    
+//    @IBAction func onCancelAction(_ sender: Any) {
+//        self.dismiss(animated: true, completion: nil)
+//    }
     
     func setColor() {
         let red = String(format: "%0.0f", redColor * 255)
@@ -112,7 +96,8 @@ class ColorPickerViewController: UIViewController {
         let blue = String(format: "%0.0f", blueColor * 255)
         blueLabel.text = "Blue : \(blue)"
         
-        colorDisplayView.backgroundColor = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
+        let color = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
+        self.delegate?.setColor(color: color)
     }
     
     override func didReceiveMemoryWarning() {

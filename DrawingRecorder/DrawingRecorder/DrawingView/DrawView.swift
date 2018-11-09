@@ -15,10 +15,8 @@ class DrawView: UIView {
     var recodingData:RecodingData = RecodingData()
     var drawingInfo = RecodingData.DrawingInfo()
     
-    var color = UIColor.black
-    var width:CGFloat = 5
-    
-    var isRemove:Bool = false
+    private(set) var color = UIColor.black
+    private(set) var width:CGFloat = 5
     
     var drawLayer:CAShapeLayer = CAShapeLayer()
     
@@ -27,11 +25,6 @@ class DrawView: UIView {
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let point = self.convert((touch?.location(in: self))!, to: self)
-        
-        if isRemove {
-            checkHit(point: point)
-            return
-        }
         
         guard let timestamp = touch?.timestamp else {
             return
@@ -50,11 +43,6 @@ class DrawView: UIView {
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first
         let point = self.convert((touch?.location(in: self))!, to: self)
-        
-        if isRemove {
-            checkHit(point: point)
-            return
-        }
         
         guard let timestamp = touch?.timestamp else {
             return
@@ -83,16 +71,6 @@ class DrawView: UIView {
         recodingData.drawingInfos.append(drawingInfo)
     }
     
-    func checkHit(point:CGPoint) {
-        self.layer.sublayers?.forEach({ (layer) in
-            if let l = layer as? CAShapeLayer {
-                if let path = l.path, path.contains(point) {
-                    l.removeFromSuperlayer()
-                }
-            }
-        })
-    }
-    
     func startRecoding() {
         recodingData = RecodingData()
         recodingData.startRecodingTime = ProcessInfo.processInfo.systemUptime
@@ -104,10 +82,22 @@ class DrawView: UIView {
         recodingData.endRecodingTime = ProcessInfo.processInfo.systemUptime
     }
     
-    func removePath() {
+    func selectPencil(color:UIColor) {
+        setColor(color: color)
+    }
+    
+    func selectEraser() {
         if let backColor = self.backgroundColor {
-            self.color = backColor
+            setColor(color: backColor)
         }
+    }
+    
+    func setColor(color:UIColor) {
+        self.color = color
+    }
+    
+    func setLineWidth(width:Int) {
+        self.width = CGFloat(width)
     }
     
     func play() {

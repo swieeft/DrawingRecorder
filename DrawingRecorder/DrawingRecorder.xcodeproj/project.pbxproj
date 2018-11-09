@@ -19,6 +19,8 @@
 		2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418989921919DF400C7132E /* ColorPickerViewController.swift */; };
 		2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */; };
 		2452AF6E21943126001811E5 /* RecodingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF6D21943126001811E5 /* RecodingButton.swift */; };
+		2452AF7121951A76001811E5 /* LineWidthSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */; };
+		2452AF7321951A7D001811E5 /* LineWidthSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		2418989921919DF400C7132E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPickerViewController.storyboard; sourceTree = "<group>"; };
 		2452AF6D21943126001811E5 /* RecodingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingButton.swift; sourceTree = "<group>"; };
+		2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWidthSelectViewController.swift; sourceTree = "<group>"; };
+		2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LineWidthSelectViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 		241898662191969800C7132E /* DrawingRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				2452AF6F21951A45001811E5 /* LineWidthSelectView */,
 				2452AF6C2194311A001811E5 /* CustomControl */,
 				2452AF6A219403C2001811E5 /* DrawingView */,
 				2418989B21919DF900C7132E /* ColorPicker */,
@@ -162,6 +167,15 @@
 				2452AF6D21943126001811E5 /* RecodingButton.swift */,
 			);
 			path = CustomControl;
+			sourceTree = "<group>";
+		};
+		2452AF6F21951A45001811E5 /* LineWidthSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */,
+				2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */,
+			);
+			path = LineWidthSelectView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +286,7 @@
 				2418986F2191969A00C7132E /* Assets.xcassets in Resources */,
 				2418986D2191969800C7132E /* Main.storyboard in Resources */,
 				2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */,
+				2452AF7321951A7D001811E5 /* LineWidthSelectViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +316,7 @@
 				2418986A2191969800C7132E /* ViewController.swift in Sources */,
 				241898982191981600C7132E /* RecodingData.swift in Sources */,
 				241898682191969800C7132E /* AppDelegate.swift in Sources */,
+				2452AF7121951A76001811E5 /* LineWidthSelectViewController.swift in Sources */,
 				241898962191977400C7132E /* DrawView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

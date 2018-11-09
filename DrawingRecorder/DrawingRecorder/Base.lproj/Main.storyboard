@@ -26,29 +26,30 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sj-E6-4rk">
-                                        <rect key="frame" x="16" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="50" y="15" width="20" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="8mu-n8-INa"/>
-                                            <constraint firstAttribute="height" constant="30" id="ZB1-1W-pG1"/>
+                                            <constraint firstAttribute="width" constant="20" id="8mu-n8-INa"/>
+                                            <constraint firstAttribute="height" constant="20" id="ZB1-1W-pG1"/>
                                         </constraints>
-                                        <state key="normal" image="pencil"/>
                                         <connections>
                                             <action selector="selectColor:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hyC-wv-uOw"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YY-FU-IZV">
-                                        <rect key="frame" x="63" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="87" y="10" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="1Vp-Rg-AbX"/>
                                             <constraint firstAttribute="width" constant="30" id="mju-nl-OFr"/>
                                         </constraints>
                                         <state key="normal" image="eraser"/>
+                                        <state key="selected" image="eraserSelected"/>
                                         <connections>
                                             <action selector="removeDraw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3wB-HQ-xay"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWF-iH-QrY">
-                                        <rect key="frame" x="54" y="10" width="1" height="30"/>
+                                        <rect key="frame" x="78" y="10" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="H5L-0Z-Yod"/>
@@ -56,7 +57,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-9i-Oah">
-                                        <rect key="frame" x="101" y="10" width="1" height="30"/>
+                                        <rect key="frame" x="125" y="10" width="1" height="30"/>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="Kuv-aB-saZ"/>
@@ -64,7 +65,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EqA-sj-asm">
-                                        <rect key="frame" x="110" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="134" y="10" width="30" height="30"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kti-cP-s9I">
                                                 <rect key="frame" x="0.0" y="4" width="30" height="5"/>
@@ -94,28 +95,42 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="녹화 시작 후 그림 그리기가 가능합니다." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFe-Dq-bXt">
-                                        <rect key="frame" x="148" y="18" width="219" height="14.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                        <rect key="frame" x="172" y="19.5" width="195" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwn-5Y-KyO">
+                                        <rect key="frame" x="16" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="bsU-Ir-t0c"/>
+                                            <constraint firstAttribute="height" constant="30" id="nNH-3a-bY2"/>
+                                        </constraints>
+                                        <state key="normal" image="pencil"/>
+                                        <state key="selected" image="pencilSelected"/>
+                                        <connections>
+                                            <action selector="selectPencil:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xvf-AR-j9b"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="EqA-sj-asm" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="3I3-1x-s8j"/>
-                                    <constraint firstItem="aWF-iH-QrY" firstAttribute="leading" secondItem="7Sj-E6-4rk" secondAttribute="trailing" constant="8" id="3Ob-Cg-TEV"/>
                                     <constraint firstItem="oFe-Dq-bXt" firstAttribute="leading" secondItem="EqA-sj-asm" secondAttribute="trailing" constant="8" id="6Xv-tc-0Rd"/>
                                     <constraint firstItem="0YY-FU-IZV" firstAttribute="leading" secondItem="aWF-iH-QrY" secondAttribute="trailing" constant="8" id="Fsa-0M-CXG"/>
                                     <constraint firstAttribute="height" constant="50" id="GLQ-9V-Ia0"/>
-                                    <constraint firstItem="7Sj-E6-4rk" firstAttribute="leading" secondItem="xlr-7n-w6Y" secondAttribute="leading" constant="16" id="L22-Ve-E59"/>
+                                    <constraint firstItem="7Sj-E6-4rk" firstAttribute="leading" secondItem="nwn-5Y-KyO" secondAttribute="trailing" constant="4" id="JHA-Ff-8dy"/>
                                     <constraint firstAttribute="trailing" secondItem="oFe-Dq-bXt" secondAttribute="trailing" constant="8" id="QRM-1v-7sC"/>
                                     <constraint firstItem="GlW-9i-Oah" firstAttribute="leading" secondItem="0YY-FU-IZV" secondAttribute="trailing" constant="8" id="SVw-cP-h86"/>
                                     <constraint firstItem="aWF-iH-QrY" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="juJ-fs-bJr"/>
+                                    <constraint firstItem="nwn-5Y-KyO" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="l5e-Cm-2C5"/>
+                                    <constraint firstItem="nwn-5Y-KyO" firstAttribute="leading" secondItem="xlr-7n-w6Y" secondAttribute="leading" constant="16" id="nfJ-e2-ShM"/>
                                     <constraint firstItem="0YY-FU-IZV" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="pDB-sz-LqC"/>
                                     <constraint firstItem="oFe-Dq-bXt" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="rju-6S-EXH"/>
                                     <constraint firstItem="EqA-sj-asm" firstAttribute="leading" secondItem="GlW-9i-Oah" secondAttribute="trailing" constant="8" id="sxO-ql-7FH"/>
                                     <constraint firstItem="7Sj-E6-4rk" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="tUw-Aq-2N6"/>
                                     <constraint firstItem="GlW-9i-Oah" firstAttribute="centerY" secondItem="xlr-7n-w6Y" secondAttribute="centerY" id="xrD-hR-tIn"/>
+                                    <constraint firstItem="aWF-iH-QrY" firstAttribute="leading" secondItem="7Sj-E6-4rk" secondAttribute="trailing" constant="8" id="yaL-z5-BA9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EU-Cb-P8t">
@@ -134,6 +149,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flF-wi-DOk">
                                         <rect key="frame" x="337" y="10" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="U8m-dF-Uwh"/>
+                                        </constraints>
                                         <state key="normal" title="Play"/>
                                         <connections>
                                             <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvN-rK-PbL"/>
@@ -142,6 +160,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.23000000000000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="flF-wi-DOk" firstAttribute="leading" secondItem="LSS-ZZ-dQb" secondAttribute="trailing" constant="130" id="GBH-eW-g8U"/>
                                     <constraint firstAttribute="trailing" secondItem="flF-wi-DOk" secondAttribute="trailing" constant="8" id="Ovm-Qn-Kvo"/>
                                     <constraint firstItem="LSS-ZZ-dQb" firstAttribute="centerY" secondItem="7EU-Cb-P8t" secondAttribute="centerY" id="exd-Lp-hoW"/>
                                     <constraint firstItem="flF-wi-DOk" firstAttribute="centerY" secondItem="7EU-Cb-P8t" secondAttribute="centerY" id="ln3-V9-PTa"/>
@@ -178,7 +197,11 @@
                     <connections>
                         <outlet property="colorPickerButton" destination="7Sj-E6-4rk" id="AFR-Yf-90X"/>
                         <outlet property="drawView" destination="zUW-Ti-nvI" id="7TZ-OH-CUc"/>
+                        <outlet property="eraserButton" destination="0YY-FU-IZV" id="98s-9a-S97"/>
                         <outlet property="informationLabel" destination="oFe-Dq-bXt" id="tQT-nB-wdK"/>
+                        <outlet property="lineWidthLabel" destination="nDU-pP-jMq" id="iY7-SE-bh6"/>
+                        <outlet property="lineWidthView" destination="EqA-sj-asm" id="6VO-nM-Py1"/>
+                        <outlet property="pencilButton" destination="nwn-5Y-KyO" id="lHk-k0-6PM"/>
                         <outlet property="recodingButton" destination="LSS-ZZ-dQb" id="3ra-Dn-vpz"/>
                     </connections>
                 </viewController>
@@ -189,6 +212,8 @@
     </scenes>
     <resources>
         <image name="eraser" width="100" height="100"/>
+        <image name="eraserSelected" width="100" height="100"/>
         <image name="pencil" width="100" height="100"/>
+        <image name="pencilSelected" width="100" height="100"/>
     </resources>
 </document>
