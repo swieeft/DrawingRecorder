@@ -16,20 +16,19 @@ class RecodingButton: UIButton {
     
     private(set) var isRecoding = false
     
+    private let animationKey = "changePath"
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        setCircleButton()
+        self.setCircleView()
+        
         setAnimation()
         setStartLayer()
         setStopLayer()
     }
     
-    private func setCircleButton() {
-        self.layer.masksToBounds = false
-        self.layer.cornerRadius = self.layer.frame.width / 2
-    }
-    
+    // 버튼 클릭 시 사용 될 애니메이션 설정
     private func setAnimation() {
         layerAnimation.duration = 1
         layerAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
@@ -37,14 +36,7 @@ class RecodingButton: UIButton {
         layerAnimation.isRemovedOnCompletion = false
     }
     
-    private func getCenter() -> CGPoint {
-        let x = self.bounds.maxX / 2
-        let y = self.bounds.maxY / 2
-        let center = CGPoint(x: x, y: y)
-        
-        return center
-    }
-    
+    // 녹화 시작 버튼 모양 레이어 설정
     private func setStartLayer() {
         let pathCenter = getCenter()
         
@@ -58,6 +50,7 @@ class RecodingButton: UIButton {
         self.layer.addSublayer(startLayer)
     }
     
+    // 녹화 종료 버튼 모양 레이어 설정
     private func setStopLayer() {
         let pathCenter = getCenter()
         
@@ -71,15 +64,25 @@ class RecodingButton: UIButton {
         stopLayer.fillColor = UIColor.red.cgColor
     }
     
+    // 버튼의 Center Point 계산
+    private func getCenter() -> CGPoint {
+        let x = self.bounds.maxX / 2
+        let y = self.bounds.maxY / 2
+        let center = CGPoint(x: x, y: y)
+        
+        return center
+    }
+    
+    // 녹화 시작, 종료 시 버튼 모양 변경
     func recoding() {
         if isRecoding {
             layerAnimation.fromValue = stopLayer.path
             layerAnimation.toValue = startLayer.path
-            startLayer.add(layerAnimation, forKey: "changePath")
+            startLayer.add(layerAnimation, forKey: animationKey)
         } else {
             layerAnimation.fromValue = startLayer.path
             layerAnimation.toValue = stopLayer.path
-            startLayer.add(layerAnimation, forKey: "changePath")
+            startLayer.add(layerAnimation, forKey: animationKey)
         }
         
         isRecoding = !isRecoding

@@ -21,7 +21,7 @@ class LineWidthSelectViewController: UIViewController {
     @IBOutlet weak var upSizeButton: UIButton!
     @IBOutlet weak var downSizeButton: UIButton!
     
-    var currentWidth:Int = 0
+    var currentWidth:Int = 0 // 현재 펜 굵기
     
     var delegate:LineWidthSelectProtocol?
     
@@ -31,7 +31,9 @@ class LineWidthSelectViewController: UIViewController {
         widthTextField.text = "\(currentWidth)"
     }
     
+    // 펜 굵기 증가
     @IBAction func upSize(_ sender: Any) {
+        // 굵기는 100보다 클 수 없음
         if currentWidth == 100 {
             return
         }
@@ -39,7 +41,9 @@ class LineWidthSelectViewController: UIViewController {
         setLineWidth()
     }
     
+    // 펜 굵기 감소
     @IBAction func downSize(_ sender: Any) {
+        // 굵기는 1보다 작을 수 없음
         if currentWidth == 1 {
             return
         }

@@ -14,13 +14,20 @@
 		241898722191969A00C7132E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 241898702191969A00C7132E /* LaunchScreen.storyboard */; };
 		2418987D2191969A00C7132E /* DrawingRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418987C2191969A00C7132E /* DrawingRecorderTests.swift */; };
 		241898882191969A00C7132E /* DrawingRecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898872191969A00C7132E /* DrawingRecorderUITests.swift */; };
-		241898962191977400C7132E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898952191977400C7132E /* DrawView.swift */; };
+		241898962191977400C7132E /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898952191977400C7132E /* DrawingView.swift */; };
 		241898982191981600C7132E /* RecodingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241898972191981600C7132E /* RecodingData.swift */; };
 		2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2418989921919DF400C7132E /* ColorPickerViewController.swift */; };
 		2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */; };
 		2452AF6E21943126001811E5 /* RecodingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF6D21943126001811E5 /* RecodingButton.swift */; };
 		2452AF7121951A76001811E5 /* LineWidthSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */; };
 		2452AF7321951A7D001811E5 /* LineWidthSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */; };
+		2452AF762195488A001811E5 /* SpeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF752195488A001811E5 /* SpeedViewController.swift */; };
+		2452AF7821954892001811E5 /* SpeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2452AF7721954892001811E5 /* SpeedViewController.storyboard */; };
+		2452AF7B21955531001811E5 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7A21955531001811E5 /* UIViewExtension.swift */; };
+		2452AF7D21955654001811E5 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7C21955654001811E5 /* UIViewControllerExtension.swift */; };
+		2452AF7F21957BF7001811E5 /* CAShapeLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */; };
+		2452AF8221957FB1001811E5 /* DrawingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8121957FB1001811E5 /* DrawingData.swift */; };
+		2452AF8421957FCB001811E5 /* AnimationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8321957FCB001811E5 /* AnimationData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +61,20 @@
 		241898832191969A00C7132E /* DrawingRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		241898872191969A00C7132E /* DrawingRecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingRecorderUITests.swift; sourceTree = "<group>"; };
 		241898892191969A00C7132E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		241898952191977400C7132E /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		241898952191977400C7132E /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 		241898972191981600C7132E /* RecodingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingData.swift; sourceTree = "<group>"; };
 		2418989921919DF400C7132E /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ColorPickerViewController.storyboard; sourceTree = "<group>"; };
 		2452AF6D21943126001811E5 /* RecodingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecodingButton.swift; sourceTree = "<group>"; };
 		2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineWidthSelectViewController.swift; sourceTree = "<group>"; };
 		2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LineWidthSelectViewController.storyboard; sourceTree = "<group>"; };
+		2452AF752195488A001811E5 /* SpeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedViewController.swift; sourceTree = "<group>"; };
+		2452AF7721954892001811E5 /* SpeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SpeedViewController.storyboard; sourceTree = "<group>"; };
+		2452AF7A21955531001811E5 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2452AF7C21955654001811E5 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShapeLayerExtension.swift; sourceTree = "<group>"; };
+		2452AF8121957FB1001811E5 /* DrawingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingData.swift; sourceTree = "<group>"; };
+		2452AF8321957FCB001811E5 /* AnimationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +125,13 @@
 		241898662191969800C7132E /* DrawingRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				2452AF6F21951A45001811E5 /* LineWidthSelectView */,
+				2452AF8021957F98001811E5 /* Data */,
+				2452AF7921955524001811E5 /* Extension */,
 				2452AF6C2194311A001811E5 /* CustomControl */,
 				2452AF6A219403C2001811E5 /* DrawingView */,
-				2418989B21919DF900C7132E /* ColorPicker */,
+				2418989B21919DF900C7132E /* ColorPickerViewController */,
+				2452AF6F21951A45001811E5 /* LineWidthSelectViewController */,
+				2452AF7421954807001811E5 /* SpeedViewController */,
 				241898672191969800C7132E /* AppDelegate.swift */,
 				241898692191969800C7132E /* ViewController.swift */,
 				2418986B2191969800C7132E /* Main.storyboard */,
@@ -143,20 +160,19 @@
 			path = DrawingRecorderUITests;
 			sourceTree = "<group>";
 		};
-		2418989B21919DF900C7132E /* ColorPicker */ = {
+		2418989B21919DF900C7132E /* ColorPickerViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2418989921919DF400C7132E /* ColorPickerViewController.swift */,
 				2418989C21919E0D00C7132E /* ColorPickerViewController.storyboard */,
 			);
-			path = ColorPicker;
+			path = ColorPickerViewController;
 			sourceTree = "<group>";
 		};
 		2452AF6A219403C2001811E5 /* DrawingView */ = {
 			isa = PBXGroup;
 			children = (
-				241898972191981600C7132E /* RecodingData.swift */,
-				241898952191977400C7132E /* DrawView.swift */,
+				241898952191977400C7132E /* DrawingView.swift */,
 			);
 			path = DrawingView;
 			sourceTree = "<group>";
@@ -169,13 +185,42 @@
 			path = CustomControl;
 			sourceTree = "<group>";
 		};
-		2452AF6F21951A45001811E5 /* LineWidthSelectView */ = {
+		2452AF6F21951A45001811E5 /* LineWidthSelectViewController */ = {
 			isa = PBXGroup;
 			children = (
 				2452AF7021951A76001811E5 /* LineWidthSelectViewController.swift */,
 				2452AF7221951A7D001811E5 /* LineWidthSelectViewController.storyboard */,
 			);
-			path = LineWidthSelectView;
+			path = LineWidthSelectViewController;
+			sourceTree = "<group>";
+		};
+		2452AF7421954807001811E5 /* SpeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2452AF752195488A001811E5 /* SpeedViewController.swift */,
+				2452AF7721954892001811E5 /* SpeedViewController.storyboard */,
+			);
+			path = SpeedViewController;
+			sourceTree = "<group>";
+		};
+		2452AF7921955524001811E5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2452AF7A21955531001811E5 /* UIViewExtension.swift */,
+				2452AF7C21955654001811E5 /* UIViewControllerExtension.swift */,
+				2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2452AF8021957F98001811E5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				241898972191981600C7132E /* RecodingData.swift */,
+				2452AF8121957FB1001811E5 /* DrawingData.swift */,
+				2452AF8321957FCB001811E5 /* AnimationData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +330,7 @@
 				241898722191969A00C7132E /* LaunchScreen.storyboard in Resources */,
 				2418986F2191969A00C7132E /* Assets.xcassets in Resources */,
 				2418986D2191969800C7132E /* Main.storyboard in Resources */,
+				2452AF7821954892001811E5 /* SpeedViewController.storyboard in Resources */,
 				2418989D21919E0D00C7132E /* ColorPickerViewController.storyboard in Resources */,
 				2452AF7321951A7D001811E5 /* LineWidthSelectViewController.storyboard in Resources */,
 			);
@@ -315,9 +361,15 @@
 				2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */,
 				2418986A2191969800C7132E /* ViewController.swift in Sources */,
 				241898982191981600C7132E /* RecodingData.swift in Sources */,
+				2452AF7D21955654001811E5 /* UIViewControllerExtension.swift in Sources */,
+				2452AF762195488A001811E5 /* SpeedViewController.swift in Sources */,
+				2452AF8221957FB1001811E5 /* DrawingData.swift in Sources */,
 				241898682191969800C7132E /* AppDelegate.swift in Sources */,
+				2452AF7B21955531001811E5 /* UIViewExtension.swift in Sources */,
+				2452AF7F21957BF7001811E5 /* CAShapeLayerExtension.swift in Sources */,
 				2452AF7121951A76001811E5 /* LineWidthSelectViewController.swift in Sources */,
-				241898962191977400C7132E /* DrawView.swift in Sources */,
+				241898962191977400C7132E /* DrawingView.swift in Sources */,
+				2452AF8421957FCB001811E5 /* AnimationData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +551,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -516,7 +568,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = swieeft.DrawingRecorder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

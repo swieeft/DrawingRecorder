@@ -24,7 +24,7 @@ class ColorPickerViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    var currentColor:UIColor = UIColor.clear
+    var currentColor:UIColor = UIColor.clear // 현재 색상
     
     var redColor:Float = 0.0
     var greenColor:Float = 0.0
@@ -42,6 +42,7 @@ class ColorPickerViewController: UIViewController {
         setCurrentColor()
     }
     
+    // 현재 색상으로 컨트롤 값을 변경
     func setCurrentColor() {
         var fRed : CGFloat = 0
         var fGreen : CGFloat = 0
@@ -76,16 +77,6 @@ class ColorPickerViewController: UIViewController {
         setColor()
     }
     
-//    @IBAction func onApplyAction(_ sender: Any) {
-//        let color = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
-//        self.delegate?.setColor(color: color)
-//        self.dismiss(animated: true, completion: nil)
-//    }
-//    
-//    @IBAction func onCancelAction(_ sender: Any) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
-    
     func setColor() {
         let red = String(format: "%0.0f", redColor * 255)
         redLabel.text = "Red : \(red)"
@@ -97,6 +88,8 @@ class ColorPickerViewController: UIViewController {
         blueLabel.text = "Blue : \(blue)"
         
         let color = UIColor(red: CGFloat(redColor), green: CGFloat(greenColor), blue: CGFloat(blueColor), alpha: 1.0)
+        currentColor = color
+        
         self.delegate?.setColor(color: color)
     }
     
