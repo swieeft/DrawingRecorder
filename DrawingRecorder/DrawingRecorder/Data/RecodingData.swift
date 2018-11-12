@@ -12,7 +12,7 @@ struct RecodingData {
     var startRecoding:TimeInterval = 0
     var endRecoding:TimeInterval = 0
     var drawingDatas:[DrawingData] = []
-    var isRecoding:Bool = false
+//    var isRecoding:Bool = false
 }
 
 

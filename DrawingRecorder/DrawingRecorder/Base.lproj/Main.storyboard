@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="71" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfM-9O-bvL">
-                                <rect key="frame" x="13" y="591" width="349" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="녹화 후 그리기를 시작할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsb-MR-39w" customClass="StopWatchLabel" customModule="DrawingRecorder" customModuleProvider="target">
+                                <rect key="frame" x="16" y="593" width="343" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlr-7n-w6Y">
@@ -195,13 +195,6 @@
                                             <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvN-rK-PbL"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="녹화 시작 후 그림 그리기가 가능합니다." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFe-Dq-bXt">
-                                        <rect key="frame" x="8" y="21" width="156" height="12"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.23000000000000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -224,19 +217,19 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mqz-y5-O6c" secondAttribute="trailing" id="06r-kb-pfm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cfM-9O-bvL" secondAttribute="trailing" constant="13" id="20n-7s-qFF"/>
                             <constraint firstItem="7EU-Cb-P8t" firstAttribute="top" secondItem="zUW-Ti-nvI" secondAttribute="bottom" id="8k5-3j-qgH"/>
                             <constraint firstItem="7EU-Cb-P8t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9GY-cd-YLU"/>
-                            <constraint firstItem="7EU-Cb-P8t" firstAttribute="top" secondItem="cfM-9O-bvL" secondAttribute="bottom" constant="8" id="9Gw-Aw-GRC"/>
                             <constraint firstItem="7EU-Cb-P8t" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="9am-DN-CBk"/>
                             <constraint firstItem="mqz-y5-O6c" firstAttribute="top" secondItem="xlr-7n-w6Y" secondAttribute="bottom" id="KZu-Rl-zhE"/>
+                            <constraint firstItem="7EU-Cb-P8t" firstAttribute="top" secondItem="Lsb-MR-39w" secondAttribute="bottom" constant="8" id="TEA-Yf-ijX"/>
                             <constraint firstItem="mqz-y5-O6c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZUC-97-YE2"/>
                             <constraint firstItem="xlr-7n-w6Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="asK-mi-q27"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zUW-Ti-nvI" secondAttribute="trailing" id="cqa-Co-2RB"/>
                             <constraint firstItem="zUW-Ti-nvI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="e6w-3B-AtC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lsb-MR-39w" secondAttribute="trailing" constant="16" id="ebn-gS-baw"/>
+                            <constraint firstItem="Lsb-MR-39w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ilQ-4T-LHr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xlr-7n-w6Y" secondAttribute="trailing" id="ne4-Q0-Bv0"/>
                             <constraint firstItem="xlr-7n-w6Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nfc-xf-z2g"/>
-                            <constraint firstItem="cfM-9O-bvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="13" id="svs-9W-1o2"/>
                             <constraint firstItem="zUW-Ti-nvI" firstAttribute="top" secondItem="mqz-y5-O6c" secondAttribute="bottom" id="tvV-3e-KAw"/>
                             <constraint firstAttribute="trailing" secondItem="7EU-Cb-P8t" secondAttribute="trailing" id="wX2-X1-vLL"/>
                         </constraints>
@@ -246,14 +239,13 @@
                         <outlet property="colorPickerButton" destination="7Sj-E6-4rk" id="AFR-Yf-90X"/>
                         <outlet property="drawingView" destination="zUW-Ti-nvI" id="7TZ-OH-CUc"/>
                         <outlet property="eraserButton" destination="0YY-FU-IZV" id="98s-9a-S97"/>
-                        <outlet property="informationLabel" destination="oFe-Dq-bXt" id="tQT-nB-wdK"/>
                         <outlet property="lineWidthLabel" destination="nDU-pP-jMq" id="iY7-SE-bh6"/>
                         <outlet property="lineWidthView" destination="EqA-sj-asm" id="6VO-nM-Py1"/>
                         <outlet property="pencilButton" destination="nwn-5Y-KyO" id="lHk-k0-6PM"/>
-                        <outlet property="playTimeLabel" destination="cfM-9O-bvL" id="7aH-2V-dnT"/>
                         <outlet property="recodingButton" destination="LSS-ZZ-dQb" id="3ra-Dn-vpz"/>
                         <outlet property="speedLabel" destination="GOa-Ig-wwk" id="Hfg-8v-O6q"/>
                         <outlet property="speedView" destination="AB1-p7-5Q8" id="Xcd-fd-67J"/>
+                        <outlet property="stopWatchLabel" destination="Lsb-MR-39w" id="q3V-4l-oum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

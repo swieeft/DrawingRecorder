@@ -28,6 +28,8 @@
 		2452AF7F21957BF7001811E5 /* CAShapeLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */; };
 		2452AF8221957FB1001811E5 /* DrawingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8121957FB1001811E5 /* DrawingData.swift */; };
 		2452AF8421957FCB001811E5 /* AnimationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8321957FCB001811E5 /* AnimationData.swift */; };
+		2452AF8821991858001811E5 /* StopWatchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8721991858001811E5 /* StopWatchLabel.swift */; };
+		2452AF8A21991F98001811E5 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAShapeLayerExtension.swift; sourceTree = "<group>"; };
 		2452AF8121957FB1001811E5 /* DrawingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingData.swift; sourceTree = "<group>"; };
 		2452AF8321957FCB001811E5 /* AnimationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationData.swift; sourceTree = "<group>"; };
+		2452AF8721991858001811E5 /* StopWatchLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchLabel.swift; sourceTree = "<group>"; };
+		2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				2452AF6D21943126001811E5 /* RecodingButton.swift */,
+				2452AF8721991858001811E5 /* StopWatchLabel.swift */,
 			);
 			path = CustomControl;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				2452AF7A21955531001811E5 /* UIViewExtension.swift */,
 				2452AF7C21955654001811E5 /* UIViewControllerExtension.swift */,
 				2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */,
+				2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -358,7 +364,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2452AF6E21943126001811E5 /* RecodingButton.swift in Sources */,
+				2452AF8A21991F98001811E5 /* TimeIntervalExtension.swift in Sources */,
 				2418989A21919DF400C7132E /* ColorPickerViewController.swift in Sources */,
+				2452AF8821991858001811E5 /* StopWatchLabel.swift in Sources */,
 				2418986A2191969800C7132E /* ViewController.swift in Sources */,
 				241898982191981600C7132E /* RecodingData.swift in Sources */,
 				2452AF7D21955654001811E5 /* UIViewControllerExtension.swift in Sources */,

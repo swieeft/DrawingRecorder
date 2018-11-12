@@ -13,14 +13,16 @@ class DrawingView: UIView {
     // MARK: Properties
     private var recodingData = RecodingData()
     private var drawingData = DrawingData()
-    private(set) var theme = DrawingData.Theme()
     private(set) var animationData = AnimationData()
+    private(set) var theme = DrawingData.Theme()
+    
+    private(set) var isRecoding:Bool = false
+    private(set) var isAnimationPlay:Bool = false
     
     // MARK: - Methods
     // MARK: Touches Methods
-    
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if recodingData.isRecoding == false {
+        if isRecoding == false {
             return
         }
         
@@ -38,7 +40,7 @@ class DrawingView: UIView {
     }
     
     open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if recodingData.isRecoding == false {
+        if isRecoding == false {
             return
         }
         
@@ -53,7 +55,7 @@ class DrawingView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if recodingData.isRecoding == false {
+        if isRecoding == false {
             return
         }
         
@@ -77,13 +79,15 @@ class DrawingView: UIView {
         
         recodingData = RecodingData()
         recodingData.startRecoding = ProcessInfo.processInfo.systemUptime
-        recodingData.isRecoding = true
+        self.isUserInteractionEnabled = true
+        isRecoding = true
     }
     
     // 녹화 종료
     func endRecoding() {
         recodingData.endRecoding = ProcessInfo.processInfo.systemUptime
-        recodingData.isRecoding = false
+        self.isUserInteractionEnabled = false
+        isRecoding = false
     }
     
     // 펜 색상 선택
@@ -114,15 +118,14 @@ class DrawingView: UIView {
     }
     
     // MARK: Drawing Methods
-    
     override func draw(_ rect: CGRect) {
         // 애니메이션이 실행 중일 경우 그리기를 할 수 없게 함
-        if self.animationData.isPlay {
+        if isAnimationPlay {
             return
         }
         
         // 녹화 중이 아닐 경우 그리기를 할 수 없게 함
-        if recodingData.isRecoding == false {
+        if isRecoding == false {
             return
         }
         
@@ -163,14 +166,14 @@ class DrawingView: UIView {
         self.layer.addSublayer(layer)
     }
     
-    // 녹화 완료 후 애니메이션 재생
+    // 애니메이션 재생
     func animationPlay() {
         // 녹화 중일 경우 애니메이션 실행을 막음
-        if recodingData.isRecoding {
+        if isRecoding {
             return
         }
         
-        self.animationData.isPlay = true
+        isAnimationPlay = true
         
         self.removeAllSubLayer()
         
@@ -185,7 +188,7 @@ class DrawingView: UIView {
             // 애니메이션 수행이 완료 되면 play 상태를 false로 돌려놓고 애니메이션 작업이 완료
             defer {
                 DispatchQueue.main.async {
-                    self.animationData.isPlay = false
+                    self.isAnimationPlay = false
                 }
             }
             

@@ -24,9 +24,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBOutlet weak var speedView: UIView!
     @IBOutlet weak var speedLabel: UILabel!
     
-    @IBOutlet weak var informationLabel: UILabel!
-    
-    @IBOutlet weak var playTimeLabel: UILabel!
+    @IBOutlet weak var stopWatchLabel: StopWatchLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +36,29 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     // 녹화 시작, 종료
     @IBAction func recoding(_ sender: UIButton) {
-        recodingButton.isRecoding ? drawingView.endRecoding() : drawingView.startRecoding() // 녹화 중인지 판단 후 녹화 시작/종료
+        if drawingView.isAnimationPlay {
+            return
+        }
         
-        drawingView.isUserInteractionEnabled =  !recodingButton.isRecoding // 녹화 중일 때만 drawView 활성화
-        informationLabel.isHidden =  !recodingButton.isRecoding
-        playTimeLabel.isHidden = recodingButton.isRecoding
+        if drawingView.isRecoding {
+            drawingView.endRecoding()
+            stopWatchLabel.endRecoding()
+        } else {
+            drawingView.startRecoding()
+            stopWatchLabel.startRecoding()
+        }
         
-        recodingButton.recoding() // 녹화 버튼 녹화 상태에 맞게 변경
+        recodingButton.recoding(isRecoding: !drawingView.isRecoding) // 녹화 버튼 녹화 상태에 맞게 변경
     }
     
     // 애니메이션 시작
     @IBAction func play(_ sender: Any) {
+        if drawingView.isRecoding || drawingView.isAnimationPlay {
+            return
+        }
+        
         drawingView.animationPlay()
+        stopWatchLabel.playAnimation(speed: drawingView.animationData.speed)
     }
     
     // 펜 사용 선택

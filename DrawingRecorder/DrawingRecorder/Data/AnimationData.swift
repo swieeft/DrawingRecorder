@@ -10,5 +10,5 @@ import UIKit
 
 struct AnimationData {
     var speed:Double = 1.0
-    var isPlay:Bool = false
+//    var isPlay:Bool = false
 }
