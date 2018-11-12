@@ -10,7 +10,7 @@ import UIKit
 
 class StopWatchLabel: UILabel {
 
-    private var recodungCounter:TimeInterval = 0.0 //녹화 시간
+    private var recodingCounter:TimeInterval = 0.0 //녹화 시간
     private var animationCounter:TimeInterval = 0.0 //애니메이션 재생 시간
     
     private var timer = Timer()
@@ -21,9 +21,9 @@ class StopWatchLabel: UILabel {
 
     // 녹화 시작
     func startRecoding() {
-        self.recodungCounter = 0.0
+        self.recodingCounter = 0.0
         
-        self.text = "00:00.00"
+        self.text = "00:00"
         startTimer(selector: #selector(recodingUpdateTimer))
     }
     
@@ -37,38 +37,41 @@ class StopWatchLabel: UILabel {
         self.speed = speed
         self.animationCounter = 0.0
         
-        self.counterStr = recodungCounter.toStringTimeStopWatchFormatter()
+        self.counterStr = recodingCounter.toStringTimeStopWatchFormatter()
         
-        self.text = "00:00.00/\(counterStr)"
+        self.text = "00:00/\(counterStr)"
         startTimer(selector: #selector(animationUpdateTimer))
     }
     
     // 타이머 설정 후 시작
     func startTimer(selector:Selector) {
-        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: selector, userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: selector, userInfo: nil, repeats: true)
     }
     
     // 타이머 종료
     func stopTimer() {
         self.timer.invalidate()
         self.counterStr = ""
+        print("stopwatch \(recodingCounter.toStringTimeStopWatchFormatter())")
     }
     
     // 녹화 시간 화면 표시
     @objc func recodingUpdateTimer() {
-        recodungCounter = recodungCounter + 0.01
-        let timeStr = recodungCounter.toStringTimeStopWatchFormatter()
-        
+        recodingCounter = recodingCounter + 0.1
+        let timeStr = recodingCounter.toStringTimeStopWatchFormatter()
+
         updateText(timeStr: timeStr)
     }
     
     // 애니메이션 재생 시간 화면 표시
     @objc func animationUpdateTimer() {
-        animationCounter = animationCounter + (0.01 * speed)
-        let timeStr = "\(animationCounter.toStringTimeStopWatchFormatter())/\(counterStr)"
+        animationCounter = animationCounter + (0.1 * speed)
+        
+        var timeStr = "\(animationCounter.toStringTimeStopWatchFormatter())/\(counterStr)"
         
         // 애니메이션 재생 시간이 녹화시간보다 크거나 같다면 타이머 정지
-        if self.animationCounter >= self.recodungCounter {
+        if self.animationCounter >= self.recodingCounter {
+            timeStr = "\(counterStr)/\(counterStr)"
             self.stopTimer()
         }
         

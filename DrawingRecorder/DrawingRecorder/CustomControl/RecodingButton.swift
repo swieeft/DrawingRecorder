@@ -14,10 +14,6 @@ class RecodingButton: UIButton {
     
     private var layerAnimation = CABasicAnimation(keyPath: "path")
     
-//    private(set) var isRecoding = false
-    
-//    var isAnimationPaly = false
-    
     private let animationKey = "changePath"
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,10 +73,6 @@ class RecodingButton: UIButton {
     
     // 녹화 시작, 종료 시 버튼 모양 변경
     func recoding(isRecoding:Bool) {
-//        if isAnimationPaly {
-//            return
-//        }
-        
         if isRecoding {
             layerAnimation.fromValue = stopLayer.path
             layerAnimation.toValue = startLayer.path
@@ -90,7 +82,5 @@ class RecodingButton: UIButton {
             layerAnimation.toValue = stopLayer.path
             startLayer.add(layerAnimation, forKey: animationKey)
         }
-        
-//        isRecoding = !isRecoding
     }
 }

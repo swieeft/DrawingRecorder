@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DrawingAnimationDelegate {
+    func stopAnimation()
+}
+
 class DrawingView: UIView {
     
     // MARK: Properties
@@ -18,6 +22,10 @@ class DrawingView: UIView {
     
     private(set) var isRecoding:Bool = false
     private(set) var isAnimationPlay:Bool = false
+
+    private var workItem:DispatchWorkItem?
+    
+    var delegate:DrawingAnimationDelegate?
     
     // MARK: - Methods
     // MARK: Touches Methods
@@ -88,6 +96,8 @@ class DrawingView: UIView {
         recodingData.endRecoding = ProcessInfo.processInfo.systemUptime
         self.isUserInteractionEnabled = false
         isRecoding = false
+        
+        print("recoding \((recodingData.endRecoding - recodingData.startRecoding).toStringTimeStopWatchFormatter())")
     }
     
     // 펜 색상 선택
@@ -183,17 +193,20 @@ class DrawingView: UIView {
             return
         }
         
-        let queue = DispatchQueue(label: "recodingAnimation")
+        let queue = DispatchQueue(label: "drawingAnimation")
         queue.async {
             // 애니메이션 수행이 완료 되면 play 상태를 false로 돌려놓고 애니메이션 작업이 완료
             defer {
                 DispatchQueue.main.async {
                     self.isAnimationPlay = false
+                    self.delegate?.stopAnimation()
+                    print("animation End")
                 }
             }
             
             // 녹화 시작 시간 - 첫 터치 시간 만큼 대기 후 그리기 실행
-            self.sleep(time1: drawingDatas[0].startDrawing, time2: self.recodingData.startRecoding)
+            self.sleep(time1: drawingDatas[0].startDrawing, time2: self.recodingData.startRecoding, animationInterval: 0.0)
+            var animationCurrent = ProcessInfo.processInfo.systemUptime
             
             for i in 0..<drawingDatas.count {
                 
@@ -206,39 +219,54 @@ class DrawingView: UIView {
                 
                 DispatchQueue.main.async {
                     self.layer.addSublayer(layer)
-                    self.setNeedsDisplay()
                 }
                 
                 for j in 0..<data.touchInfos.count {
+                    
                     let info = data.touchInfos[j]
                     
                     j == 0 ? path.move(to: info.point) : path.addLine(to: info.point)
                     
                     DispatchQueue.main.async {
                         layer.path = path.cgPath
-                        self.setNeedsDisplay()
                     }
 
                     if j + 1 >= data.touchInfos.count {
                         continue
                     }
                     
-                    self.sleep(time1: data.touchInfos[j + 1].timeInterval, time2: info.timeInterval)
+                    let time = ProcessInfo.processInfo.systemUptime
+                    let animationInterval = time - animationCurrent
+                    self.sleep(time1: data.touchInfos[j + 1].timeInterval, time2: info.timeInterval, animationInterval: animationInterval)
+                    
+                    animationCurrent = time
                 }
                 
+//                let time = ProcessInfo.processInfo.systemUptime
+//                let animationInterval = time - animationCurrent
+                
                 if i == (drawingDatas.count - 1) {
-                    self.sleep(time1: self.recodingData.endRecoding, time2: data.endDrawing)
+                    self.sleep(time1: self.recodingData.endRecoding, time2: data.endDrawing, animationInterval: 0)
                 } else {
-                    self.sleep(time1: drawingDatas[i + 1].startDrawing, time2: data.endDrawing)
+                    self.sleep(time1: drawingDatas[i + 1].startDrawing, time2: data.endDrawing, animationInterval: 0)
                 }
+                
+//                animationCurrent = time
             }
         }
     }
     
     // time1 - time2 만큼의 시간 동안 스레드 정지
-    func sleep(time1:TimeInterval, time2:TimeInterval) {
-        let interval = time1 - time2
-        Thread.sleep(forTimeInterval: interval / self.animationData.speed)
+    func sleep(time1:TimeInterval, time2:TimeInterval, animationInterval:TimeInterval) {
+        let interval = (time1 - time2) / self.animationData.speed
+        let ocha = (interval - animationInterval)
+//        let aa = (interval - ocha) / self.animationData.speed
+        
+        if ocha < 0 {
+            Thread.sleep(forTimeInterval: interval)
+        } else {
+            Thread.sleep(forTimeInterval: ocha)
+        }
     }
 }
 

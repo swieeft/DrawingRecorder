@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, LineWidthSelectProtocol, SpeedProtocol {
-    
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, ColorPickerDelegate, LineWidthSelectProtocol, SpeedProtocol, DrawingAnimationDelegate {
+
     @IBOutlet weak var drawingView: DrawingView!
+    @IBOutlet weak var menuView: UIView!
     
     @IBOutlet weak var recodingButton: RecodingButton!
     
@@ -29,6 +30,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.drawingView.delegate = self
         self.colorPickerButton.setCircleView()
         self.lineWidthView.setTapGesture(target: self, action: #selector(selectLineWidthOpen(sender:)))
         self.speedView.setTapGesture(target: self, action: #selector(selectSpeedOpen(sender:)))
@@ -36,6 +38,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     // 녹화 시작, 종료
     @IBAction func recoding(_ sender: UIButton) {
+        // 애니메이션 재생 중에는 녹화를 할 수 없음
         if drawingView.isAnimationPlay {
             return
         }
@@ -48,17 +51,28 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             stopWatchLabel.startRecoding()
         }
         
-        recodingButton.recoding(isRecoding: !drawingView.isRecoding) // 녹화 버튼 녹화 상태에 맞게 변경
+        // 녹화 버튼 녹화 상태에 맞게 변경
+        recodingButton.recoding(isRecoding: !drawingView.isRecoding)
     }
     
     // 애니메이션 시작
     @IBAction func play(_ sender: Any) {
-        if drawingView.isRecoding || drawingView.isAnimationPlay {
+        // 녹화 중이거나 애니메이션 실행 중에는 애니메이션 실행 할 수 없음
+        if drawingView.isRecoding || drawingView.isAnimationPlay{
             return
         }
         
         drawingView.animationPlay()
         stopWatchLabel.playAnimation(speed: drawingView.animationData.speed)
+        
+        menuView.alpha = 0.5
+        menuView.isUserInteractionEnabled = false
+    }
+    
+    // 애니메이션 종료
+    func stopAnimation() {
+        menuView.alpha = 1
+        menuView.isUserInteractionEnabled = true
     }
     
     // 펜 사용 선택

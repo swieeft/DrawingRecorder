@@ -241,6 +241,7 @@
                         <outlet property="eraserButton" destination="0YY-FU-IZV" id="98s-9a-S97"/>
                         <outlet property="lineWidthLabel" destination="nDU-pP-jMq" id="iY7-SE-bh6"/>
                         <outlet property="lineWidthView" destination="EqA-sj-asm" id="6VO-nM-Py1"/>
+                        <outlet property="menuView" destination="xlr-7n-w6Y" id="TKy-HQ-Ie5"/>
                         <outlet property="pencilButton" destination="nwn-5Y-KyO" id="lHk-k0-6PM"/>
                         <outlet property="recodingButton" destination="LSS-ZZ-dQb" id="3ra-Dn-vpz"/>
                         <outlet property="speedLabel" destination="GOa-Ig-wwk" id="Hfg-8v-O6q"/>
