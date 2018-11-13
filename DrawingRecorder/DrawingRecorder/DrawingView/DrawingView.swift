@@ -63,11 +63,7 @@ class DrawingView: UIView {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isRecoding == false {
-            return
-        }
-        
-        if self.drawingData.touchInfos.count == 0 {
+        if isRecoding == false || self.drawingData.touchInfos.count == 0 {
             return
         }
         
@@ -87,6 +83,7 @@ class DrawingView: UIView {
         
         recodingData = RecodingData()
         recodingData.startRecoding = ProcessInfo.processInfo.systemUptime
+        
         self.isUserInteractionEnabled = true
         isRecoding = true
     }
@@ -94,10 +91,9 @@ class DrawingView: UIView {
     // 녹화 종료
     func endRecoding() {
         recodingData.endRecoding = ProcessInfo.processInfo.systemUptime
+        
         self.isUserInteractionEnabled = false
         isRecoding = false
-        
-        print("recoding \((recodingData.endRecoding - recodingData.startRecoding).toStringTimeStopWatchFormatter())")
     }
     
     // 펜 색상 선택
@@ -176,44 +172,51 @@ class DrawingView: UIView {
         self.layer.addSublayer(layer)
     }
     
+    // MARK: Animation Methods
+    
     // 애니메이션 재생
+    // - 타이머 설정 후 타이머의 값을 비교하여 타이머 값보다 터치 된 시간이 이전 시간일 경우에 화면에 그림
+    // - 아직 타이머 값이 이전일 경우 대기하고 있음
     func animationPlay() {
+        
         // 녹화 중일 경우 애니메이션 실행을 막음
         if isRecoding {
             return
         }
         
-        isAnimationPlay = true
-        
         self.removeAllSubLayer()
         
         let drawingDatas = self.recodingData.drawingDatas
         
+        // 녹화 된 데이터가 없을 경우 종료
         if drawingDatas.count == 0 {
+            self.delegate?.stopAnimation()
             return
         }
         
+        isAnimationPlay = true
+        
+        //애니메이션 타이머 시작
+        self.animationData.startTimer(recodingInterval: self.recodingData.interval)
+        
         let queue = DispatchQueue(label: "drawingAnimation")
         queue.async {
+            
             // 애니메이션 수행이 완료 되면 play 상태를 false로 돌려놓고 애니메이션 작업이 완료
             defer {
                 DispatchQueue.main.async {
                     self.isAnimationPlay = false
                     self.delegate?.stopAnimation()
-                    print("animation End")
                 }
             }
             
-            // 녹화 시작 시간 - 첫 터치 시간 만큼 대기 후 그리기 실행
-            self.sleep(time1: drawingDatas[0].startDrawing, time2: self.recodingData.startRecoding, animationInterval: 0.0)
-            var animationCurrent = ProcessInfo.processInfo.systemUptime
+            self.watingDraw(time: drawingDatas[0].startDrawing)
             
             for i in 0..<drawingDatas.count {
-                
                 let data = drawingDatas[i]
                 
                 let path = UIBezierPath()
-
+                
                 let layer = CAShapeLayer()
                 layer.createDrawingLayer(path: path, theme: data.theme)
                 
@@ -230,46 +233,29 @@ class DrawingView: UIView {
                     DispatchQueue.main.async {
                         layer.path = path.cgPath
                     }
-
+                    
                     if j + 1 >= data.touchInfos.count {
                         continue
                     }
                     
-                    let time = ProcessInfo.processInfo.systemUptime
-                    let animationInterval = time - animationCurrent
-                    self.sleep(time1: data.touchInfos[j + 1].timeInterval, time2: info.timeInterval, animationInterval: animationInterval)
-                    
-                    animationCurrent = time
+                    self.watingDraw(time: data.touchInfos[j + 1].timeInterval)
                 }
                 
-//                let time = ProcessInfo.processInfo.systemUptime
-//                let animationInterval = time - animationCurrent
-                
-                if i == (drawingDatas.count - 1) {
-                    self.sleep(time1: self.recodingData.endRecoding, time2: data.endDrawing, animationInterval: 0)
-                } else {
-                    self.sleep(time1: drawingDatas[i + 1].startDrawing, time2: data.endDrawing, animationInterval: 0)
-                }
-                
-//                animationCurrent = time
+                let time = i == (drawingDatas.count - 1) ? self.recodingData.endRecoding : drawingDatas[i + 1].startDrawing
+                self.watingDraw(time: time)
             }
         }
     }
     
-    // time1 - time2 만큼의 시간 동안 스레드 정지
-    func sleep(time1:TimeInterval, time2:TimeInterval, animationInterval:TimeInterval) {
-        let interval = (time1 - time2) / self.animationData.speed
-        let ocha = (interval - animationInterval)
-//        let aa = (interval - ocha) / self.animationData.speed
+    // 해당 포인트를 그린 시간이 될때까지 대기
+    func watingDraw(time:TimeInterval) {
+        let interval = time - self.recodingData.startRecoding
         
-        if ocha < 0 {
-            Thread.sleep(forTimeInterval: interval)
-        } else {
-            Thread.sleep(forTimeInterval: ocha)
+        while self.animationData.timerCounter <= interval {
+            Thread.sleep(forTimeInterval: 0.001 / self.animationData.speed)
         }
     }
 }
-
 
 
 

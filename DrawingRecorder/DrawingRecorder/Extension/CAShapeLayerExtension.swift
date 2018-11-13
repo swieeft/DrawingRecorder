@@ -9,6 +9,7 @@
 import UIKit
 
 extension CAShapeLayer {
+    // drawing에 사용될 레이어 만들기
     func createDrawingLayer(path:UIBezierPath, theme:DrawingData.Theme) {
         self.path = path.cgPath
         self.strokeStart = 0

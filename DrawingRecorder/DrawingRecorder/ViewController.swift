@@ -12,8 +12,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 
     @IBOutlet weak var drawingView: DrawingView!
     @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     @IBOutlet weak var recodingButton: RecodingButton!
+    @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var pencilButton: UIButton!
     @IBOutlet weak var colorPickerButton: UIButton!
@@ -32,8 +34,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 
         self.drawingView.delegate = self
         self.colorPickerButton.setCircleView()
+        self.playButton.setCircleView()
         self.lineWidthView.setTapGesture(target: self, action: #selector(selectLineWidthOpen(sender:)))
         self.speedView.setTapGesture(target: self, action: #selector(selectSpeedOpen(sender:)))
+        
     }
     
     // 녹화 시작, 종료
@@ -62,17 +66,17 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             return
         }
         
+        menuView.setViewEnabled(isEnabled: false)
+        bottomView.setViewEnabled(isEnabled: false)
+        
         drawingView.animationPlay()
         stopWatchLabel.playAnimation(speed: drawingView.animationData.speed)
-        
-        menuView.alpha = 0.5
-        menuView.isUserInteractionEnabled = false
     }
     
     // 애니메이션 종료
     func stopAnimation() {
-        menuView.alpha = 1
-        menuView.isUserInteractionEnabled = true
+        menuView.setViewEnabled(isEnabled: true)
+        bottomView.setViewEnabled(isEnabled: true)
     }
     
     // 펜 사용 선택

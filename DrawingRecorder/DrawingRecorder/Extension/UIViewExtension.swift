@@ -22,9 +22,15 @@ extension UIView {
         self.addGestureRecognizer(tapGesture)
     }
     
+    // 뷰에 추가 된 Sub Layer들을 모두 제거
     func removeAllSubLayer() {
         self.layer.sublayers?.forEach({ (layer) in
             layer.removeFromSuperlayer()
         })
+    }
+    
+    func setViewEnabled(isEnabled:Bool) {
+        self.alpha = isEnabled == true ? 1.0 : 0.5
+        self.isUserInteractionEnabled = isEnabled == true ? true : false
     }
 }

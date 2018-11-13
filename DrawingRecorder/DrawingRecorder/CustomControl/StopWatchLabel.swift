@@ -23,7 +23,7 @@ class StopWatchLabel: UILabel {
     func startRecoding() {
         self.recodingCounter = 0.0
         
-        self.text = "00:00"
+        self.text = "00:00.0"
         startTimer(selector: #selector(recodingUpdateTimer))
     }
     
@@ -39,7 +39,7 @@ class StopWatchLabel: UILabel {
         
         self.counterStr = recodingCounter.toStringTimeStopWatchFormatter()
         
-        self.text = "00:00/\(counterStr)"
+        self.text = "00:00.0/\(counterStr)"
         startTimer(selector: #selector(animationUpdateTimer))
     }
     
@@ -52,7 +52,6 @@ class StopWatchLabel: UILabel {
     func stopTimer() {
         self.timer.invalidate()
         self.counterStr = ""
-        print("stopwatch \(recodingCounter.toStringTimeStopWatchFormatter())")
     }
     
     // 녹화 시간 화면 표시

@@ -9,7 +9,6 @@
 import UIKit
 
 protocol StoryboardName: class {
-    
 }
 
 extension StoryboardName where Self:UIViewController {

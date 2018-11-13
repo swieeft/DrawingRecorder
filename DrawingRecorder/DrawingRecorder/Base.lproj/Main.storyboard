@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="71" width="375" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="녹화 후 그리기를 시작할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsb-MR-39w" customClass="StopWatchLabel" customModule="DrawingRecorder" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="녹화 시작 후 그리기를 시작할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsb-MR-39w" customClass="StopWatchLabel" customModule="DrawingRecorder" customModuleProvider="target">
                                 <rect key="frame" x="16" y="593" width="343" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -186,11 +186,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flF-wi-DOk">
-                                        <rect key="frame" x="337" y="10" width="30" height="30"/>
+                                        <rect key="frame" x="223" y="10" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="9Xs-5e-jn8"/>
                                             <constraint firstAttribute="height" constant="30" id="U8m-dF-Uwh"/>
                                         </constraints>
-                                        <state key="normal" title="Play"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="▶︎">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="play:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jvN-rK-PbL"/>
                                         </connections>
@@ -198,8 +204,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.23000000000000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="flF-wi-DOk" firstAttribute="leading" secondItem="LSS-ZZ-dQb" secondAttribute="trailing" constant="130" id="GBH-eW-g8U"/>
-                                    <constraint firstAttribute="trailing" secondItem="flF-wi-DOk" secondAttribute="trailing" constant="8" id="Ovm-Qn-Kvo"/>
+                                    <constraint firstItem="flF-wi-DOk" firstAttribute="leading" secondItem="LSS-ZZ-dQb" secondAttribute="trailing" constant="16" id="GBH-eW-g8U"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="flF-wi-DOk" secondAttribute="trailing" constant="8" id="NiK-gO-4ho"/>
                                     <constraint firstItem="LSS-ZZ-dQb" firstAttribute="centerY" secondItem="7EU-Cb-P8t" secondAttribute="centerY" id="exd-Lp-hoW"/>
                                     <constraint firstItem="flF-wi-DOk" firstAttribute="centerY" secondItem="7EU-Cb-P8t" secondAttribute="centerY" id="ln3-V9-PTa"/>
                                     <constraint firstAttribute="height" constant="50" id="q7Z-cP-Cih"/>
@@ -236,6 +242,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomView" destination="7EU-Cb-P8t" id="ZlI-ra-VTT"/>
                         <outlet property="colorPickerButton" destination="7Sj-E6-4rk" id="AFR-Yf-90X"/>
                         <outlet property="drawingView" destination="zUW-Ti-nvI" id="7TZ-OH-CUc"/>
                         <outlet property="eraserButton" destination="0YY-FU-IZV" id="98s-9a-S97"/>
@@ -243,6 +250,7 @@
                         <outlet property="lineWidthView" destination="EqA-sj-asm" id="6VO-nM-Py1"/>
                         <outlet property="menuView" destination="xlr-7n-w6Y" id="TKy-HQ-Ie5"/>
                         <outlet property="pencilButton" destination="nwn-5Y-KyO" id="lHk-k0-6PM"/>
+                        <outlet property="playButton" destination="flF-wi-DOk" id="QFg-FV-0y7"/>
                         <outlet property="recodingButton" destination="LSS-ZZ-dQb" id="3ra-Dn-vpz"/>
                         <outlet property="speedLabel" destination="GOa-Ig-wwk" id="Hfg-8v-O6q"/>
                         <outlet property="speedView" destination="AB1-p7-5Q8" id="Xcd-fd-67J"/>
