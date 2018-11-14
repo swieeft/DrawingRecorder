@@ -30,6 +30,7 @@
 		2452AF8421957FCB001811E5 /* AnimationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8321957FCB001811E5 /* AnimationData.swift */; };
 		2452AF8821991858001811E5 /* StopWatchLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8721991858001811E5 /* StopWatchLabel.swift */; };
 		2452AF8A21991F98001811E5 /* TimeIntervalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */; };
+		2452AF90219BA298001811E5 /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2452AF8F219BA298001811E5 /* CALayerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		2452AF8321957FCB001811E5 /* AnimationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationData.swift; sourceTree = "<group>"; };
 		2452AF8721991858001811E5 /* StopWatchLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchLabel.swift; sourceTree = "<group>"; };
 		2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtension.swift; sourceTree = "<group>"; };
+		2452AF8F219BA298001811E5 /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				2452AF7A21955531001811E5 /* UIViewExtension.swift */,
 				2452AF7C21955654001811E5 /* UIViewControllerExtension.swift */,
+				2452AF8F219BA298001811E5 /* CALayerExtension.swift */,
 				2452AF7E21957BF7001811E5 /* CAShapeLayerExtension.swift */,
 				2452AF8921991F98001811E5 /* TimeIntervalExtension.swift */,
 			);
@@ -378,6 +381,7 @@
 				2452AF7121951A76001811E5 /* LineWidthSelectViewController.swift in Sources */,
 				241898962191977400C7132E /* DrawingView.swift in Sources */,
 				2452AF8421957FCB001811E5 /* AnimationData.swift in Sources */,
+				2452AF90219BA298001811E5 /* CALayerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@ protocol LineWidthSelectProtocol {
     func selectLineWidth(width:Int)
 }
 
-class LineWidthSelectViewController: UIViewController {
+class LineWidthSelectViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var borderView: UIView!
     
@@ -28,7 +28,30 @@ class LineWidthSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        widthTextField.delegate = self
         widthTextField.text = "\(currentWidth)"
+        
+        upSizeButton.layer.roundBorder(cornerRadius: 5, borderColor: .black, borderWidth: 0.5)
+        downSizeButton.layer.roundBorder(cornerRadius: 5, borderColor: .black, borderWidth: 0.5)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else {
+            setLineWidth(width: 1)
+            return
+        }
+        
+        if text == "" || text == "0" {
+            setLineWidth(width: 1)
+            return
+        }
+        
+        guard let width = Int(text) else {
+            setLineWidth(width: 1)
+            return
+        }
+        
+        width > 100 ? setLineWidth(width: 100) : setLineWidth(width: width)
     }
     
     // 펜 굵기 증가
@@ -37,8 +60,8 @@ class LineWidthSelectViewController: UIViewController {
         if currentWidth == 100 {
             return
         }
-        currentWidth += 1
-        setLineWidth()
+
+        setLineWidth(width: currentWidth + 1)
     }
     
     // 펜 굵기 감소
@@ -48,12 +71,13 @@ class LineWidthSelectViewController: UIViewController {
             return
         }
         
-        currentWidth -= 1
-        setLineWidth()
+        setLineWidth(width: currentWidth - 1)
     }
     
-    func setLineWidth() {
+    func setLineWidth(width:Int) {
+        currentWidth = width
         widthTextField.text = "\(currentWidth)"
+        
         self.delegate?.selectLineWidth(width: currentWidth)
     }
     

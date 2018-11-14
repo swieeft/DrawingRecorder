@@ -23,8 +23,6 @@ class DrawingView: UIView {
     private(set) var isRecoding:Bool = false
     private(set) var isAnimationPlay:Bool = false
 
-    private var workItem:DispatchWorkItem?
-    
     var delegate:DrawingAnimationDelegate?
     
     // MARK: - Methods
@@ -39,9 +37,7 @@ class DrawingView: UIView {
         }
         
         // 새로운 그림 데이터 레코딩 시작
-        self.drawingData = DrawingData()
-        self.drawingData.startDrawing = touch.timestamp
-        self.drawingData.theme = self.theme
+        self.drawingData = DrawingData(startDrawing: touch.timestamp, theme: self.theme)
         
         let point = self.convert(touch.location(in: self), to: self)
         self.drawingData.touchInfos.append((point, touch.timestamp))
@@ -62,7 +58,7 @@ class DrawingView: UIView {
         self.setNeedsDisplay()
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isRecoding == false || self.drawingData.touchInfos.count == 0 {
             return
         }
@@ -126,20 +122,16 @@ class DrawingView: UIView {
     // MARK: Drawing Methods
     override func draw(_ rect: CGRect) {
         // 애니메이션이 실행 중일 경우 그리기를 할 수 없게 함
-        if isAnimationPlay {
-            return
-        }
-        
         // 녹화 중이 아닐 경우 그리기를 할 수 없게 함
-        if isRecoding == false {
+        if isAnimationPlay || isRecoding == false{
             return
         }
-        
+
         drawPath()
     }
     
     // 사용자가 녹화를 시작하고 그리기를 하면 뷰에 그림을 그려줌
-    func drawPath() {
+    private func drawPath() {
         self.removeAllSubLayer()
         
         // 이전에 입력 된 경로를 먼저 그려줌
@@ -175,10 +167,7 @@ class DrawingView: UIView {
     // MARK: Animation Methods
     
     // 애니메이션 재생
-    // - 타이머 설정 후 타이머의 값을 비교하여 타이머 값보다 터치 된 시간이 이전 시간일 경우에 화면에 그림
-    // - 아직 타이머 값이 이전일 경우 대기하고 있음
     func animationPlay() {
-        
         // 녹화 중일 경우 애니메이션 실행을 막음
         if isRecoding {
             return
@@ -195,6 +184,13 @@ class DrawingView: UIView {
         }
         
         isAnimationPlay = true
+        
+        startAnimation(drawingDatas: drawingDatas)
+    }
+    
+    // - 타이머 설정 후 타이머의 값을 비교하여 타이머 값보다 터치 된 시간이 이전 시간일 경우에 화면에 그림
+    // - 아직 타이머 값이 이전일 경우 대기하고 있음
+    private func startAnimation(drawingDatas:[DrawingData]) {
         
         //애니메이션 타이머 시작
         self.animationData.startTimer(recodingInterval: self.recodingData.interval)
@@ -224,22 +220,7 @@ class DrawingView: UIView {
                     self.layer.addSublayer(layer)
                 }
                 
-                for j in 0..<data.touchInfos.count {
-                    
-                    let info = data.touchInfos[j]
-                    
-                    j == 0 ? path.move(to: info.point) : path.addLine(to: info.point)
-                    
-                    DispatchQueue.main.async {
-                        layer.path = path.cgPath
-                    }
-                    
-                    if j + 1 >= data.touchInfos.count {
-                        continue
-                    }
-                    
-                    self.watingDraw(time: data.touchInfos[j + 1].timeInterval)
-                }
+                self.drawingPathAnimation(data: data, path: path, layer: layer)
                 
                 let time = i == (drawingDatas.count - 1) ? self.recodingData.endRecoding : drawingDatas[i + 1].startDrawing
                 self.watingDraw(time: time)
@@ -247,8 +228,29 @@ class DrawingView: UIView {
         }
     }
     
+    // 애니메이션 재생 시 경로 그리기
+    private func drawingPathAnimation(data:DrawingData, path:UIBezierPath, layer:CAShapeLayer) {
+        for i in 0..<data.touchInfos.count {
+            
+            let info = data.touchInfos[i]
+            
+            i == 0 ? path.move(to: info.point) : path.addLine(to: info.point)
+            
+            DispatchQueue.main.async {
+                layer.path = path.cgPath
+            }
+            
+            if i + 1 >= data.touchInfos.count {
+                continue
+            }
+            
+            self.watingDraw(time: data.touchInfos[i + 1].timeInterval)
+        }
+    }
+    
+    
     // 해당 포인트를 그린 시간이 될때까지 대기
-    func watingDraw(time:TimeInterval) {
+    private func watingDraw(time:TimeInterval) {
         let interval = time - self.recodingData.startRecoding
         
         while self.animationData.timerCounter <= interval {

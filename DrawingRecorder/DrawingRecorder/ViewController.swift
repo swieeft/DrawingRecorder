@@ -126,7 +126,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         
         lineWidthVC.currentWidth = Int(drawingView.theme.width) // 현재 굵기
         lineWidthVC.delegate = self
-        lineWidthVC.setPopoverViewController(size: CGSize(width: 100, height: 50), sourceView: view, delegate: self)
+        lineWidthVC.setPopoverViewController(size: CGSize(width: 132, height: 50), sourceView: view, delegate: self)
         
         self.present(lineWidthVC, animated: true, completion: nil)
     }

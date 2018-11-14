@@ -9,13 +9,16 @@
 import UIKit
 
 class RecodingButton: UIButton {
+    // MARK: Properties
     private var startLayer:CAShapeLayer = CAShapeLayer()
     private var stopLayer:CAShapeLayer = CAShapeLayer()
     
-    private var layerAnimation = CABasicAnimation(keyPath: "path")
+    private var layerAnimation:CABasicAnimation = CABasicAnimation(keyPath: "path")
     
     private let animationKey = "changePath"
-    
+
+    // MARK: -
+    // MARK: Initialize
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -25,6 +28,8 @@ class RecodingButton: UIButton {
         setStartLayer()
         setStopLayer()
     }
+    
+    // MARK: - Methods
     
     // 버튼 클릭 시 사용 될 애니메이션 설정
     private func setAnimation() {

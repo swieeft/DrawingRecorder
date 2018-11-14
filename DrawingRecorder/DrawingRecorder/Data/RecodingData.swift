@@ -9,15 +9,21 @@
 import UIKit
 
 struct RecodingData {
-    var startRecoding:TimeInterval = 0 // 녹화 시작시간
-    var endRecoding:TimeInterval = 0 // 녹화 종료시간
-    var drawingDatas:[DrawingData] = [] // 녹화 시 입력 된 drawing 정보
+    var startRecoding:TimeInterval // 녹화 시작시간
+    var endRecoding:TimeInterval // 녹화 종료시간
+    var drawingDatas:[DrawingData] // 녹화 시 입력 된 drawing 정보
     
     // 녹화된 시간
     var interval:TimeInterval {
         get {
-            return endRecoding - startRecoding
+            return self.endRecoding - self.startRecoding
         }
+    }
+    
+    init() {
+        self.startRecoding = 0
+        self.endRecoding = 0
+        self.drawingDatas = []
     }
 }
 
