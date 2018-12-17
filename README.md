@@ -1,3 +1,4 @@
+![Logo](https://github.com/swieeft/DrawingRecorder/blob/master/md-Resource/Logo.gif)
 
 DrawingRecorder
 =======================
